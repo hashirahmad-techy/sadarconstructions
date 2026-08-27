@@ -5,6 +5,7 @@ import commercial from "@/assets/project-commercial.jpg";
 import interior from "@/assets/project-interior.jpg";
 import renovation from "@/assets/project-renovation.jpg";
 import floorPlan from "@/assets/floor-plan.jpg";
+import detailColumn from "@/assets/detail-column.jpg";
 
 export const projectImages = {
   heroResidence,
@@ -14,6 +15,7 @@ export const projectImages = {
   interior,
   renovation,
   floorPlan,
+  detailColumn,
 };
 
 export type ProjectCategory =
