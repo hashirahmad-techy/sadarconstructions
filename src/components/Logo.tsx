@@ -10,16 +10,19 @@ export function Logo({
   tone = "dark",
   size = "md",
   className,
+  onClick,
 }: {
   tone?: "dark" | "light";
   size?: "sm" | "md" | "lg";
   className?: string;
+  onClick?: () => void;
 }) {
   const [first, second] = site.nameLines;
 
   return (
     <Link
       to="/"
+      onClick={onClick}
       aria-label={`${site.name} — home`}
       className={cn(
         "flex flex-col leading-[0.95] transition-colors duration-500",
@@ -27,6 +30,7 @@ export function Logo({
         className,
       )}
     >
+
       <span
         className={cn(
           "font-display tracking-[0.18em]",

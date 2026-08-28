@@ -35,7 +35,7 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
         >
           <div className="flex h-full flex-col">
             <div className="flex items-center justify-between border-b border-ivory/10 px-5 py-5">
-              <Logo tone="light" onClickCapture={onClose} />
+              <Logo tone="light" onClick={onClose} />
               <button
                 type="button"
                 onClick={onClose}
