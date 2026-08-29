@@ -16,7 +16,7 @@ export function ImageStatement() {
           <Reveal className="max-w-2xl">
             <p className="label-micro text-ivory/60">Design intent</p>
             <p className="display-lg mt-6 text-ivory">
-              We build what the drawing promises — proportion, material and light held to the
+              We build what the drawing promises - proportion, material and light held to the
               millimetre.
             </p>
           </Reveal>
@@ -48,7 +48,7 @@ export function PlanToReality() {
           <p className="max-w-xl text-base leading-relaxed text-muted-foreground">
             Every project begins on paper: layouts, levels, service routes and finishing details
             resolved before the first pour. On site, that documentation becomes the reference for
-            structure, joinery and finishing — so what is built matches what was designed.
+            structure, joinery and finishing, so what is built matches what was designed.
           </p>
           <ul className="mt-2 grid gap-px border border-border bg-border sm:grid-cols-2">
             {[

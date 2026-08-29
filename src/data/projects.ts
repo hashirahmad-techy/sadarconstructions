@@ -56,7 +56,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "luxury-residence-concept",
-    title: "Luxury Residence — Concept",
+    title: "Luxury Residence - Concept",
     category: "Residential",
     location: "[Location]",
     year: "[Year]",
@@ -75,7 +75,7 @@ export const projects: Project[] = [
   },
   {
     slug: "modern-family-residence-concept",
-    title: "Modern Family Residence — Concept",
+    title: "Modern Family Residence - Concept",
     category: "Residential",
     location: "[Location]",
     year: "[Year]",
@@ -94,7 +94,7 @@ export const projects: Project[] = [
   },
   {
     slug: "contemporary-urban-residence-concept",
-    title: "Contemporary Urban Residence — Concept",
+    title: "Contemporary Urban Residence - Concept",
     category: "Architectural",
     location: "[Location]",
     year: "[Year]",
@@ -113,7 +113,7 @@ export const projects: Project[] = [
   },
   {
     slug: "commercial-development-concept",
-    title: "Commercial Development — Concept",
+    title: "Commercial Development - Concept",
     category: "Commercial",
     location: "[Location]",
     year: "[Year]",
@@ -132,7 +132,7 @@ export const projects: Project[] = [
   },
   {
     slug: "residential-renovation-concept",
-    title: "Residential Renovation — Concept",
+    title: "Residential Renovation - Concept",
     category: "Renovation",
     location: "[Location]",
     year: "[Year]",
@@ -150,7 +150,7 @@ export const projects: Project[] = [
   },
   {
     slug: "interior-execution-concept",
-    title: "Interior Execution — Concept",
+    title: "Interior Execution - Concept",
     category: "Interior",
     location: "[Location]",
     year: "[Year]",

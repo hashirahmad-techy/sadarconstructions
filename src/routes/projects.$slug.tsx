@@ -105,7 +105,7 @@ function ProjectDetail() {
             </ul>
             {project.isPlaceholder && (
               <p className="label-micro mt-8 text-bronze">
-                Reference concept — not a completed project record
+                Reference concept - not a completed project record
               </p>
             )}
           </Reveal>

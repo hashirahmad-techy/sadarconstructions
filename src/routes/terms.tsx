@@ -26,7 +26,7 @@ function TermsPage() {
       <PageHero label="Legal" title="Terms of Use" />
       <section className="section-y bg-warmwhite">
         <div className="shell flex max-w-3xl flex-col gap-8 text-base leading-relaxed text-muted-foreground">
-          <p className="label-micro text-bronze">Draft — pending legal review</p>
+          <p className="label-micro text-bronze">Draft - pending legal review</p>
           <div>
             <h2 className="display-md text-charcoal">Website content</h2>
             <p className="mt-4">

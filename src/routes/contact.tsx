@@ -39,7 +39,7 @@ function ContactPage() {
       <PageHero
         label="Contact"
         title="Start a project"
-        description="Tell us about your site, scope and timeline — we'll take it from there."
+        description="Tell us about your site, scope and timeline - we'll take it from there."
         image={projectImages.interior}
         imageAlt="Warm interior with oak joinery and travertine floors"
       />
@@ -91,9 +91,9 @@ function ContactPage() {
               </a>
             </div>
 
-            <p className="label-micro mt-8 leading-relaxed text-muted-foreground">
+            {/* <p className="label-micro mt-8 leading-relaxed text-muted-foreground">
               Contact details in brackets are placeholders awaiting verified company information.
-            </p>
+            </p> */}
           </Reveal>
         </div>
       </section>

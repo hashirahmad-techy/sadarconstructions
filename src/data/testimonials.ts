@@ -28,7 +28,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "The team treated detail as the priority — proportions, materials and finishes were all considered.",
+      "The team treated detail as the priority - proportions, materials and finishes were all considered.",
     name: "[Client Name]",
     project: "Renovation Project",
     isPlaceholder: true,

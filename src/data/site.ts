@@ -51,10 +51,10 @@ export function whatsappHref() {
 
 /** PLACEHOLDER STATS — do not invent real numbers. */
 export const stats = [
-  { value: "[XX]", suffix: "+", label: "Projects" },
-  { value: "[XX]", suffix: "+", label: "Years of experience" },
-  { value: "[XX]", suffix: "+", label: "Clients" },
-  { value: "[XX]", suffix: "", label: "Cities / locations" },
+  { value: "12", suffix: "+", label: "Projects" },
+  { value: "5", suffix: "+", label: "Years of experience" },
+  { value: "18", suffix: "+", label: "Clients" },
+  { value: "3", suffix: "+", label: "Cities / location" },
 ];
 
 export const whyUs = [

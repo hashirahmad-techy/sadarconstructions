@@ -56,29 +56,51 @@ function AboutPage() {
 
       <section className="section-y bg-warmwhite">
         <div className="shell grid gap-12 lg:grid-cols-12 lg:gap-20">
-          <div className="lg:col-span-6">
-            <SectionHeading
-              label="Who we are"
-              index="01"
-              title="A construction company with an architect's eye"
-            />
-            <div className="mt-8 flex flex-col gap-6 text-base leading-relaxed text-muted-foreground">
-              <p>
-                Sadar Constructions delivers residential and commercial projects where design
-                quality and build quality are treated as one responsibility. We work across new
-                builds, renovations and interior execution.
-              </p>
-              <p>
-                Our teams coordinate documentation, structure, services and finishing so that the
-                completed space reflects the drawings it came from — in proportion, in material and
-                in detail.
-              </p>
-              <p>
-                Company history, credentials and completed project details are placeholders on this
-                site until verified information is supplied.
-              </p>
-            </div>
-          </div>
+         <div className="lg:col-span-6">
+  <SectionHeading
+    label="Who we are"
+    index="01"
+    title="A construction company with an architect's eye"
+  />
+
+  <div className="mt-8 flex flex-col gap-6 text-base leading-relaxed text-muted-foreground">
+    <p>
+      Sadar Constructions delivers residential and commercial projects where
+      design quality and build quality are treated as one responsibility. We
+      work across new builds, renovations and interior execution.
+    </p>
+
+    <div className="mt-2">
+      <h3 className="font-serif text-3xl font-semibold tracking-tight text-charcoal md:text-4xl">
+        Meet Azhar
+      </h3>
+
+      <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-bronze">
+        Owner, Sadar Constructions <span className="mx-1">|</span> Bhopal
+      </p>
+    </div>
+
+    <blockquote className="border-l-2 border-bronze/70 pl-5 font-serif text-lg italic leading-relaxed text-charcoal md:text-xl">
+      “For Azhar, construction is more than putting walls and roofs together,
+      it is about turning a vision into a space people are proud to call their
+      own.”
+    </blockquote>
+
+    <p>
+      Based in Bhopal, Azhar leads Sadar Constructions with a focus on
+      thoughtful design, quality execution, and attention to architectural
+      detail. His approach brings together practical construction knowledge
+      and a clear appreciation for modern, elegant spaces.
+    </p>
+
+    <div className="pt-1">
+      <p className="text-sm font-semibold uppercase tracking-[0.14em] text-charcoal">
+        Built with vision.
+        <span className="ml-2 text-bronze">Executed with precision.</span>
+      </p>
+    </div>
+  </div>
+</div>
 
           <ImageReveal className="overflow-hidden lg:col-span-6">
             <img
@@ -88,6 +110,9 @@ function AboutPage() {
               className="aspect-3/4 w-full object-cover"
             />
           </ImageReveal>
+          <p>
+  {/* <strong>Built with vision. Executed with precision.</strong> */}
+</p>
         </div>
       </section>
 

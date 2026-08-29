@@ -76,10 +76,10 @@ function ProjectsPage() {
             </p>
           )}
 
-          <p className="label-micro mt-16 text-muted-foreground">
-            Note — imagery and project details shown are reference concepts, pending verified
+          {/* <p className="label-micro mt-16 text-muted-foreground">
+            Note - imagery and project details shown are reference concepts, pending verified
             project data.
-          </p>
+          </p> */}
         </div>
       </section>
 
