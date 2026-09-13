@@ -19,10 +19,10 @@ export const site = {
 
   /** PLACEHOLDERS — replace once verified. */
   contact: {
-    phone: "[Phone number]",
-    email: "[Email address]",
-    address: "[Registered office address]",
-    hours: "[Working hours]",
+    phone: "+91-8878666503",
+    email: "",
+    address: "Bhopal, Madhya Pradesh",
+    hours: "Mon–Sat, 9am–6pm",
   },
 } as const;
 

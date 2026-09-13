@@ -29,7 +29,7 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   const details = [
     { icon: Phone, label: "Phone", value: site.contact.phone },
-    { icon: Mail, label: "Email", value: site.contact.email },
+    // { icon: Mail, label: "Email", value: site.contact.email },
     { icon: MapPin, label: "Office", value: site.contact.address },
     { icon: Clock, label: "Hours", value: site.contact.hours },
   ];

@@ -66,7 +66,7 @@ function ProjectDetail() {
         imageAlt={project.title}
       />
 
-      <section className="border-b border-border bg-ivory">
+      {/* <section className="border-b border-border bg-ivory">
         <div className="shell grid grid-cols-2 gap-y-8 py-12 md:grid-cols-4">
           {meta.map((m) => (
             <div key={m.label} className="flex flex-col gap-2">
@@ -75,7 +75,7 @@ function ProjectDetail() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       <section className="section-y bg-warmwhite">
         <div className="shell grid gap-12 lg:grid-cols-12 lg:gap-16">

@@ -25,9 +25,9 @@ export function ProjectCard({ project }: { project: Project }) {
       <div className="flex items-start justify-between gap-6 border-b border-border py-6">
         <div>
           <h3 className="display-md text-charcoal">{project.title}</h3>
-          <p className="label-micro mt-3 text-muted-foreground">
+          {/* <p className="label-micro mt-3 text-muted-foreground">
             {project.location} / {project.year}
-          </p>
+          </p> */}
         </div>
         <ArrowUpRight
           className="mt-2 size-5 shrink-0 text-bronze transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1"

@@ -50,7 +50,7 @@ function Index() {
       <section className="section-y bg-warmwhite">
         <div className="shell">
           <SectionHeading
-            label="Selected work"
+            label="Featured Projects"
             index="04"
             title="Projects"
             description="Reference concepts illustrating our design and execution language."

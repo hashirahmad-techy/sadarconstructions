@@ -15,22 +15,22 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "Working with Sadar Constructions transformed our vision into a home that feels both timeless and completely our own.",
-    name: "[Client Name]",
+    name: "Mr. Mohammed Asif",
     project: "Residential Project",
-    isPlaceholder: true,
+    isPlaceholder: false,
   },
   {
     quote:
       "Clear communication at every stage, and a level of finishing that reflected the drawings exactly.",
-    name: "[Client Name]",
-    project: "Commercial Project",
-    isPlaceholder: true,
+    name: "Mr. Shubham Kumar",
+    project: "Residential Project",
+    isPlaceholder: false,
   },
   {
     quote:
       "The team treated detail as the priority - proportions, materials and finishes were all considered.",
-    name: "[Client Name]",
+    name: "Mr. Anil Sharma",
     project: "Renovation Project",
-    isPlaceholder: true,
+    isPlaceholder: false,
   },
 ];

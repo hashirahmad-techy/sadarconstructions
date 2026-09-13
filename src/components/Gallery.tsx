@@ -33,12 +33,14 @@ export function Gallery({ images, title }: { images: string[]; title: string }) 
             aria-label={`Open image ${i + 1} of ${images.length} for ${title}`}
             className="group overflow-hidden bg-stone"
           >
-            <img
-              src={src}
-              alt={`${title} — view ${i + 1}`}
-              loading="lazy"
-              className="aspect-4/3 w-full object-cover transition-transform duration-1000 group-hover:scale-105"
-            />
+            <div className="bg-white">
+  <img
+    src={src}
+    alt={`${title} — view ${i + 1}`}
+    loading="lazy"
+    className="aspect-4/3 w-full object-contain"
+  />
+</div>
           </button>
         ))}
       </div>

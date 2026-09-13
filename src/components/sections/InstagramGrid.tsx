@@ -4,12 +4,18 @@ import { projectImages } from "@/data/projects";
 import { Reveal } from "../Reveal";
 
 const tiles = [
-  projectImages.heroResidence,
-  projectImages.familyResidence,
-  projectImages.interior,
-  projectImages.urbanResidence,
-  projectImages.commercial,
-  projectImages.renovation,
+  projectImages.Architectural1,
+  projectImages.residence1,
+  projectImages.interior1,
+  projectImages.renovation1,
+  projectImages.interior5,
+  projectImages.residence2,
+  projectImages.interior2,
+  projectImages.Architectural2,
+  projectImages.residence3,
+  projectImages.interior3,
+  projectImages.Architectural3,
+  projectImages.interior4,
 ];
 
 export function InstagramGrid() {

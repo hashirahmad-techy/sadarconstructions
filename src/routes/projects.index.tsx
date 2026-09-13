@@ -35,7 +35,7 @@ function ProjectsPage() {
     <>
       <PageHero
         label="Projects"
-        title="Selected work"
+        title="Featured Projects"
         description="Reference concepts across residential, commercial, interior and renovation work."
         image={projectImages.urbanResidence}
         imageAlt="Contemporary multi-level residence in charcoal stone"

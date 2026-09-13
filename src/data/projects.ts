@@ -1,19 +1,47 @@
+import residence1 from "@/assets/residence1.jpg";
+import residence2 from "@/assets/residence2.jpg";
+import residence3 from "@/assets/residence3.jpg";
 import heroResidence from "@/assets/hero-residence.jpg";
-import familyResidence from "@/assets/project-family-residence.jpg";
+import heroLuxury from "@/assets/hero-residence.jpg";
 import urbanResidence from "@/assets/project-urban-residence.jpg";
+import Architectural1 from "@/assets/Architectural1.jpg";
+import Architectural2 from "@/assets/Architectural2.jpg";
+import Architectural3 from "@/assets/Architectural3.jpg";
 import commercial from "@/assets/project-commercial.jpg";
 import interior from "@/assets/project-interior.jpg";
+import interior1 from "@/assets/interior1.jpg";
+import interior2 from "@/assets/interior2.jpg";
+import interior3 from "@/assets/interior3.jpg";
+import interior4 from "@/assets/interior4.jpg";
+import interior5 from "@/assets/interior5.jpg";
 import renovation from "@/assets/project-renovation.jpg";
+import renovation1 from "@/assets/renovation1.jpg";
+import renovation2 from "@/assets/renovation2.jpg";
+import renovation3 from "@/assets/renovation3.jpg";
 import floorPlan from "@/assets/floor-plan.jpg";
 import detailColumn from "@/assets/detail-column.jpg";
 
 export const projectImages = {
   heroResidence,
-  familyResidence,
+  residence1,
+  residence2,
+  residence3,
+  heroLuxury,
   urbanResidence,
+  Architectural1,
+  Architectural2,
+  Architectural3,
   commercial,
   interior,
+  interior1,
+  interior2,
+  interior3,
+  interior4,
+  interior5,
   renovation,
+  renovation1,
+  renovation2,
+  renovation3,  
   floorPlan,
   detailColumn,
 };
@@ -68,28 +96,9 @@ export const projects: Project[] = [
       "Symmetry, proportion and restraint. Columns and arches set the rhythm of the elevation while material selection keeps the palette quiet and warm.",
     constructionApproach:
       "Structural planning coordinated with stone cladding, joinery and services so that finishes align precisely with the design intent.",
-    heroImage: heroResidence,
-    gallery: [heroResidence, familyResidence, interior, floorPlan],
+    heroImage: residence1,
+    gallery: [residence1, residence2, residence3],
     features: ["Stone facade", "Arched fenestration", "Entrance portal", "Architectural lighting"],
-    isPlaceholder: true,
-  },
-  {
-    slug: "modern-family-residence-concept",
-    title: "Modern Family Residence - Concept",
-    category: "Residential",
-    location: "[Location]",
-    year: "[Year]",
-    status: "Concept",
-    area: "[Area]",
-    description:
-      "A family home balancing a warm classical facade with contemporary interior volumes, generous glazing and a clear separation of private and shared spaces.",
-    designApproach:
-      "Clarity of plan first: circulation, daylight and privacy resolved before the elevation is refined.",
-    constructionApproach:
-      "Sequenced execution with quality checks at structure, plaster, joinery and finishing stages.",
-    heroImage: familyResidence,
-    gallery: [familyResidence, interior, floorPlan, heroResidence],
-    features: ["Arched windows", "Balcony detail", "Warm plaster finish", "Landscaped frontage"],
     isPlaceholder: true,
   },
   {
@@ -107,7 +116,7 @@ export const projects: Project[] = [
     constructionApproach:
       "Careful coordination of concrete, cladding and glazing tolerances to keep lines sharp.",
     heroImage: urbanResidence,
-    gallery: [urbanResidence, commercial, interior, floorPlan],
+    gallery: [Architectural1, Architectural2, Architectural3],
     features: ["Cantilevered balconies", "Timber soffits", "Full-height glazing", "Charcoal stone"],
     isPlaceholder: true,
   },
@@ -144,7 +153,7 @@ export const projects: Project[] = [
     constructionApproach:
       "Condition survey, structural strengthening, then restoration of plaster and stone detailing.",
     heroImage: renovation,
-    gallery: [renovation, interior, floorPlan],
+    gallery: [renovation1, renovation2, renovation3],
     features: ["Facade restoration", "New steel windows", "Services upgrade", "Interior rebuild"],
     isPlaceholder: true,
   },
@@ -161,7 +170,7 @@ export const projects: Project[] = [
     designApproach: "A limited palette used consistently, letting proportion and light do the work.",
     constructionApproach: "Shop drawings and mock-ups approved before fabrication and installation.",
     heroImage: interior,
-    gallery: [interior, familyResidence, floorPlan],
+    gallery: [interior1, interior2, interior3, interior4, interior5],
     features: ["Oak joinery", "Travertine floors", "Concealed lighting", "Lime plaster"],
     isPlaceholder: true,
   },

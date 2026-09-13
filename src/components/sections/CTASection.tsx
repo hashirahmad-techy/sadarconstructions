@@ -19,7 +19,7 @@ export function CTASection() {
             Let's build something that lasts
           </h2>
           <p className="text-base leading-relaxed text-ivory/70">
-            Share your site, drawings or a rough idea — we'll advise on feasibility, sequencing and
+            Share your site, drawings or a rough idea - we'll advise on feasibility, sequencing and
             what it takes to build it properly.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
