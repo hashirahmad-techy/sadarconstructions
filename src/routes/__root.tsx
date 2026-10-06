@@ -16,6 +16,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { themeInitScript } from "@/components/ThemeToggle";
 import { site } from "@/data/site";
 
 function NotFoundComponent() {
@@ -23,14 +24,14 @@ function NotFoundComponent() {
     <div className="flex min-h-[70vh] items-center justify-center bg-background px-5">
       <div className="max-w-md text-center">
         <p className="label-micro text-muted-foreground">Error 404</p>
-        <h1 className="display-lg mt-5 text-charcoal">Page not found</h1>
+        <h1 className="display-lg mt-5 text-foreground">Page not found</h1>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
           The page you're looking for doesn't exist or has been moved.
         </p>
         <div className="mt-8">
           <Link
             to="/"
-            className="label-micro inline-flex items-center bg-charcoal px-7 py-4 text-ivory transition-colors hover:bg-deepcharcoal"
+            className="label-micro inline-flex items-center bg-primary px-7 py-4 text-primary-foreground transition-opacity hover:opacity-85"
           >
             Back to home
           </Link>
@@ -50,7 +51,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-[70vh] items-center justify-center bg-background px-5">
       <div className="max-w-md text-center">
-        <h1 className="display-md text-charcoal">This page didn't load</h1>
+        <h1 className="display-md text-foreground">This page didn't load</h1>
         <p className="mt-3 text-sm text-muted-foreground">
           Something went wrong on our end. Try refreshing or head back home.
         </p>
@@ -60,13 +61,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
               router.invalidate();
               reset();
             }}
-            className="label-micro bg-charcoal px-7 py-4 text-ivory transition-colors hover:bg-deepcharcoal"
+            className="label-micro bg-primary px-7 py-4 text-primary-foreground transition-opacity hover:opacity-85"
           >
             Try again
           </button>
           <a
             href="/"
-            className="label-micro border border-charcoal/30 px-7 py-4 text-charcoal transition-colors hover:bg-charcoal hover:text-ivory"
+            className="label-micro border border-foreground/30 px-7 py-4 text-foreground transition-colors hover:bg-foreground hover:text-background"
           >
             Go home
           </a>
@@ -88,6 +89,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: site.metaDescription },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      // Tints the mobile browser bar to match the active theme
+      { name: "theme-color", content: "#faf8f3", media: "(prefers-color-scheme: light)" },
+      { name: "theme-color", content: "#1a1917", media: "(prefers-color-scheme: dark)" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -99,6 +103,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
+    // Runs before first paint so dark mode never flashes white
+    scripts: [{ children: themeInitScript }],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -108,7 +114,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    // suppressHydrationWarning: the init script adds the "dark" class before React hydrates
+    <html lang="en" suppressHydrationWarning>
       <head>
         <HeadContent />
       </head>

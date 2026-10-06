@@ -1,65 +1,140 @@
+import { useReducedMotion } from "motion/react";
 import { Instagram } from "lucide-react";
 import { site } from "@/data/site";
 import { projectImages } from "@/data/projects";
 import { Reveal } from "../Reveal";
 
-const tiles = [
-  projectImages.Architectural1,
-  projectImages.residence1,
-  projectImages.interior1,
-  projectImages.renovation1,
-  projectImages.interior5,
-  projectImages.residence2,
-  projectImages.interior2,
-  projectImages.Architectural2,
-  projectImages.residence3,
-  projectImages.interior3,
-  projectImages.Architectural3,
-  projectImages.interior4,
-];
+/**
+ * Takes the images from data/projects.ts in order (skipping the floor plan drawing)
+ * and keeps the first 18. The last ones (owner photos) are left out.
+ */
+const MAX_IMAGES = 18;
+
+const tiles = Array.from(
+  new Set(
+    Object.entries(projectImages)
+      .filter(([key]) => key !== "floorPlan")
+      .map(([, src]) => src as string),
+  ),
+).slice(0, MAX_IMAGES);
+
+// Two rows that drift in opposite directions
+const half = Math.ceil(tiles.length / 2);
+const rowA = tiles.slice(0, half);
+const rowB = tiles.slice(half);
+
+// Instagram brand gradient (brand colours, so not part of the site palette)
+const igGradient =
+  "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)";
+
+const fade =
+  "[mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]";
+
+function Row({
+  images,
+  reverse,
+  duration,
+  still,
+}: {
+  images: string[];
+  reverse?: boolean;
+  duration: string;
+  still: boolean;
+}) {
+  // Duplicate the list so the loop is seamless (the animation moves exactly half the width)
+  const items = still ? images : [...images, ...images];
+
+  return (
+    <div className={`group/row ${still ? "overflow-x-auto" : `overflow-hidden ${fade}`}`}>
+      <div
+        className={`flex w-max gap-2 sm:gap-3 ${
+          still
+            ? ""
+            : `animate-marquee hover:[animation-play-state:paused] ${
+                reverse ? "[animation-direction:reverse]" : ""
+              }`
+        }`}
+        style={still ? undefined : { animationDuration: duration }}
+      >
+        {items.map((src, i) => (
+          <a
+            key={`${src}-${i}`}
+            href={site.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Instagram"
+            aria-hidden={!still && i >= images.length ? true : undefined}
+            tabIndex={!still && i >= images.length ? -1 : undefined}
+            className="group relative block size-36 shrink-0 overflow-hidden rounded-[18px] bg-muted sm:size-44 md:size-52"
+          >
+            <img
+              src={src}
+              alt={i < images.length ? `Sadar Constructions project photo ${i + 1}` : ""}
+              loading="lazy"
+              draggable={false}
+              className="size-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+            {/* Photo overlay: always dark with a white icon, in both themes */}
+            <span className="absolute inset-0 grid place-items-center bg-deepcharcoal/45 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <Instagram className="size-6 text-white" aria-hidden="true" />
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export function InstagramGrid() {
+  const reduce = !!useReducedMotion();
+
   return (
-    <section className="section-y bg-warmwhite">
-      <div className="shell">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <div className="flex flex-col gap-4">
-            <div className="flex items-center gap-4 text-muted-foreground">
-              <span className="hairline w-8 shrink-0" />
-              <span className="label-micro">Instagram</span>
+    <section className="relative overflow-hidden bg-background py-8 md:py-12 xl:py-14">
+      <div
+        aria-hidden="true"
+        className="glow-bronze pointer-events-none absolute -left-28 top-1/2 size-80 -translate-y-1/2 opacity-20"
+      />
+
+      <div className="shell relative">
+        <Reveal className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div className="flex items-center gap-4">
+            {/* Instagram badge */}
+            <span
+              className="grid size-12 shrink-0 place-items-center rounded-2xl text-white shadow-soft"
+              style={{ background: igGradient }}
+              aria-hidden="true"
+            >
+              <Instagram className="size-6" />
+            </span>
+            <div>
+              <div className="flex items-center gap-3 text-muted-foreground">
+                <span className="hairline w-6 shrink-0 bg-accent" />
+                <span className="label-micro">05 / Instagram</span>
+              </div>
+              <h2 className="mt-1 font-display text-2xl leading-tight text-foreground md:text-4xl">
+                Our work, on your{" "}
+                <span className="text-gradient-bronze animate-shimmer">feed</span>
+              </h2>
             </div>
-            <h2 className="display-lg text-charcoal">Latest from the site</h2>
           </div>
+
           <a
             href={site.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="label-micro flex items-center gap-3 border border-charcoal/30 px-6 py-4 text-charcoal transition-colors hover:bg-charcoal hover:text-ivory"
+            className="label-micro inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-white transition-transform duration-300 hover:scale-105 sm:w-auto"
+            style={{ background: igGradient }}
           >
             <Instagram className="size-4" aria-hidden="true" />
-            {site.instagramHandle}
+            Follow {site.instagramHandle}
           </a>
-        </div>
+        </Reveal>
+      </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-6">
-          {tiles.map((src, i) => (
-            <Reveal key={src} delay={(i % 6) * 0.05}>
-              <a
-                href={site.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block overflow-hidden bg-stone"
-              >
-                <img
-                  src={src}
-                  alt="Sadar Constructions reference imagery"
-                  loading="lazy"
-                  className="aspect-square w-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                />
-              </a>
-            </Reveal>
-          ))}
-        </div>
+      {/* Two drifting rows; hover pauses the row you are on */}
+      <div className="mt-6 flex flex-col gap-2 sm:gap-3 md:mt-8">
+        <Row images={rowA} duration="55s" still={reduce} />
+        <Row images={rowB} reverse duration="65s" still={reduce} />
       </div>
     </section>
   );

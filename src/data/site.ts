@@ -20,7 +20,7 @@ export const site = {
   /** PLACEHOLDERS — replace once verified. */
   contact: {
     phone: "+91-8878666503",
-    email: "",
+    email: "azhar_khilji786@yahoo.com",
     address: "Bhopal, Madhya Pradesh",
     hours: "Mon–Sat, 9am–6pm",
   },
@@ -40,7 +40,7 @@ export const nav = [
  * Until it is set, the button links to the Instagram profile instead of a fake number.
  */
 export const whatsapp = {
-  number: (import.meta.env["VITE_WHATSAPP_NUMBER"] as string | undefined) ?? "",
+  number: "+918878666503", // e.g. "919876543210" (country code + number, no +)
   message: "Hello Sadar Constructions, I would like to discuss a construction project.",
 };
 
