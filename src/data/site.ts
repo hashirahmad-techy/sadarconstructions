@@ -51,9 +51,9 @@ export function whatsappHref() {
 
 /** PLACEHOLDER STATS — do not invent real numbers. */
 export const stats = [
-  { value: "12", suffix: "+", label: "Projects" },
+  { value: "18", suffix: "+", label: "Projects" },
   { value: "5", suffix: "+", label: "Years of experience" },
-  { value: "18", suffix: "+", label: "Clients" },
+  { value: "12", suffix: "+", label: "Clients" },
   { value: "3", suffix: "+", label: "Cities / location" },
 ];
 

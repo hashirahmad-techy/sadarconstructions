@@ -81,7 +81,7 @@ export function StatsBand() {
         "
       />
 
-      <div className="shell relative py-9 sm:py-12 md:py-16">
+      <div className="shell relative py-12 sm:py-12 md:py-16">
         {/* Desktop intro / Mobile compact heading */}
         <Reveal>
           <div className="mb-7 flex items-end justify-between md:mb-12">

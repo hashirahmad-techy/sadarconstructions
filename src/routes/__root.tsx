@@ -139,7 +139,7 @@ function RootComponent() {
       </main>
       <Footer />
       <WhatsAppButton />
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <Analytics />
     </QueryClientProvider>
   );
