@@ -65,7 +65,7 @@ function CycleWord({ reduce }: { reduce: boolean | null }) {
   return (
     <span
       aria-hidden="true"
-      className="inline-grid pr-[0.12em] italic [clip-path:inset(-0.05em_-0.3em_-0.25em_-0.3em)]"
+      className="inline-grid pr-[0.12em] italic [clip-path:inset(-0.05em_-0.3em_-0.45em_-0.3em)]"
     >
       {cycleWords.map((w, idx) => {
         const state = idx === i ? "active" : idx === (i - 1 + n) % n ? "prev" : "next";
@@ -75,7 +75,7 @@ function CycleWord({ reduce }: { reduce: boolean | null }) {
             className="text-gradient-bronze animate-shimmer whitespace-nowrap [grid-area:1/1] motion-reduce:animate-none"
             initial={false}
             animate={{
-              y: state === "active" ? "0%" : state === "prev" ? "-130%" : "130%",
+              y: state === "active" ? "0%" : state === "prev" ? "-170%" : "170%",
               opacity: state === "active" ? 1 : 0,
             }}
             transition={{ duration: reduce ? 0 : 0.6, ease: EASE }}
@@ -102,11 +102,11 @@ export function Hero() {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   // Hero is always a dark photo with light text, in both themes (fixed brand colours).
-  // Phones: height follows the content (no big empty gap). md and up: full screen height.
+  // Full screen height on every device. Phones: content is centred. md and up: content sits at the bottom.
   return (
     <section
       ref={ref}
-      className="grain relative flex flex-col overflow-hidden bg-deepcharcoal md:min-h-svh md:justify-end"
+      className="grain relative flex min-h-svh flex-col justify-center overflow-hidden bg-deepcharcoal md:justify-end"
     >
       <motion.img
         src={projectImages.heroResidence}
@@ -160,8 +160,8 @@ export function Hero() {
 
             <h1
               className="
-                mt-42 max-w-4xl font-display font-normal tracking-[-0.03em] text-ivory sm:mt-7
-                text-[clamp(2.25rem,min(9.4vw,12svh),6rem)] leading-[1.02]
+                mt-4 max-w-4xl font-display font-normal tracking-[-0.03em] text-ivory sm:mt-7
+                text-[clamp(2.25rem,min(9.4vw,12svh),6rem)] leading-[1.08]
               "
             >
               <span className="sr-only">Built to last. Designed to inspire.</span>
@@ -170,10 +170,10 @@ export function Hero() {
 
                 {/* Outer box is the static "mask"; the inner span slides up inside it.
                     The mask is taller at the bottom so letters like g, p, y are never cut. */}
-                <span className="block [clip-path:inset(0_-1em_-0.3em_-1em)]">
+                <span className="block [clip-path:inset(0_-1em_-0.5em_-1em)]">
                   <motion.span
                     className="block"
-                    initial={reduce ? false : { y: "140%" }}
+                    initial={reduce ? false : { y: "170%" }}
                     animate={{ y: 0 }}
                     transition={{ duration: 0.9, delay: 0.8, ease: EASE }}
                   >
@@ -185,20 +185,20 @@ export function Hero() {
             </h1>
 
             <motion.p
-              className="mt-4 max-w-md text-[15px] font-light leading-relaxed text-ivory/75 sm:mt-6 sm:text-lg"
+              className="mt-6 max-w-md text-[15px] font-light leading-relaxed text-ivory/75 sm:mt-8 sm:text-lg"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 1.2, ease: EASE }}
             >
-              Homes and spaces crafted with precision,{" "}
+              Strong structures, clean finishes and honest timelines,{" "}
               <span className="font-display italic text-ivory">
-                from first sketch to final stone.
+                for homes and commercial buildings.
               </span>
             </motion.p>
 
             {/* Buttons */}
             <motion.div
-              className="mt-5 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center sm:gap-4"
+              className="mt-20 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center sm:gap-4"
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 1.4, ease: EASE }}
@@ -237,10 +237,10 @@ export function Hero() {
                   className="absolute inset-x-8 -top-px h-px bg-gradient-to-r from-transparent via-bronze to-transparent"
                 />
                 <span className="!font-semibold">Start a Project</span>
-                <span
+                {/* <span
                   aria-hidden="true"
                   className="block h-px w-6 bg-current transition-all duration-500 group-hover:w-10"
-                />
+                /> */}
               </Link>
             </motion.div>
           </div>
