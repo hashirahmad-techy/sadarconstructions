@@ -1,22 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/terms")({
-  head: () => ({
-    meta: [
-      { title: "Terms of Use | Sadar Constructions" },
-      {
-        name: "description",
-        content:
-          "Terms governing the use of the Sadar Constructions website, its content and imagery.",
-      },
-      { property: "og:title", content: "Terms of Use | Sadar Constructions" },
-      {
-        property: "og:description",
-        content: "Terms governing use of this website and its content.",
-      },
-    ],
-  }),
+   head: () =>
+    seo({
+  title: "Terms & Conditions | Sadar Constructions",
+  description: "Terms and conditions for using the Sadar Constructions website and requesting our construction services.",
+  path: "/terms",
+}),
   component: TermsPage,
 });
 

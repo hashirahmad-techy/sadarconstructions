@@ -7,6 +7,8 @@ interface SectionHeadingProps {
   title: ReactNode;
   description?: ReactNode;
   align?: "left" | "center";
+  /** "dark" = theme-aware text (use on normal page backgrounds).
+   *  "light" = always-light text (use on sections that are dark in BOTH themes, e.g. over a photo). */
   tone?: "dark" | "light";
   className?: string;
   index?: string;
@@ -21,25 +23,37 @@ export function SectionHeading({
   className,
   index,
 }: SectionHeadingProps) {
-  const muted = tone === "light" ? "text-ivory/60" : "text-muted-foreground";
-  const strong = tone === "light" ? "text-ivory" : "text-charcoal";
+  const muted = tone === "light" ? "text-ivory/65" : "text-muted-foreground";
+  const strong = tone === "light" ? "text-ivory" : "text-foreground";
+  const center = align === "center";
 
   return (
-    <Reveal className={cn("flex flex-col gap-6", align === "center" && "items-center", className)}>
-      <div className={cn("flex items-center gap-4", muted)}>
-        <span className={cn("hairline w-8 shrink-0", tone === "light" && "bg-ivory/30")} />
-        <span className="label-micro">{label}</span>
-        {index && <span className="label-micro opacity-60">/ {index}</span>}
+    <Reveal className={cn("flex flex-col gap-3", center && "items-center", className)}>
+      <div className={cn("flex items-center gap-3", muted)}>
+        <span className="hairline w-6 shrink-0 bg-accent" />
+        <span className="label-micro">
+          {index ? `${index} / ` : ""}
+          {label}
+        </span>
+        {center && <span className="hairline w-6 shrink-0 bg-accent" />}
       </div>
-      <h2 className={cn("display-lg max-w-3xl", strong, align === "center" && "text-center")}>
+
+      <h2
+        className={cn(
+          "max-w-3xl font-display text-2xl leading-tight md:text-4xl",
+          strong,
+          center && "text-center",
+        )}
+      >
         {title}
       </h2>
+
       {description && (
         <p
           className={cn(
-            "max-w-xl text-base leading-relaxed",
+            "max-w-xl text-sm leading-relaxed md:text-base",
             muted,
-            align === "center" && "text-center",
+            center && "text-center",
           )}
         >
           {description}

@@ -1,23 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero } from "@/components/PageHero";
 import { site } from "@/data/site";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/privacy")({
-  head: () => ({
-    meta: [
-      { title: "Privacy Policy | Sadar Constructions" },
-      {
-        name: "description",
-        content:
-          "How Sadar Constructions collects, uses and protects personal information submitted through this website.",
-      },
-      { property: "og:title", content: "Privacy Policy | Sadar Constructions" },
-      {
-        property: "og:description",
-        content: "Our approach to handling enquiry data submitted through this website.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      title: "Privacy Policy | Sadar Constructions",
+      description:
+        "How Sadar Constructions collects, uses and protects your information when you use our website or contact us about a project.",
+      path: "/privacy",
+    }),
   component: PrivacyPage,
 });
 

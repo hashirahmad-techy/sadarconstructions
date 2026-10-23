@@ -6,6 +6,7 @@ import {
   Mail,
   MapPin,
   Phone,
+  Facebook,
 } from "lucide-react";
 import { nav, site, whatsappHref } from "@/data/site";
 import { Logo } from "./Logo";
@@ -19,7 +20,7 @@ const explore = [
 
 const linkClass =
   "group inline-flex items-center gap-2 text-sm text-ivory/60 transition-all duration-300 hover:translate-x-1 hover:text-ivory";
-
+const FACEBOOK_URL = "https://www.facebook.com/share/1BZUUvcrbv/?mibextid=wwXIfr";
 export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-charcoal text-ivory">
@@ -162,95 +163,66 @@ export function Footer() {
           </div>
 
           {/* Connect */}
-          <div className="md:col-span-3">
-            <h2 className="label-micro text-ivory/30">
-              Connect
-            </h2>
+<div className="md:col-span-3">
+  <h2 className="label-micro text-ivory/30">Connect</h2>
 
-            <div className="mt-4 grid grid-cols-3 gap-2">
-              {/* Instagram */}
-              <a
-                href={site.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="
-                  group flex
-                  items-center justify-center
-                  gap-2
-                  rounded-full
-                  border border-ivory/10
-                  px-3 py-2.5
-                  text-xs text-ivory/60
-                  transition-all duration-300
-                  hover:border-bronze
-                  hover:bg-bronze
-                  hover:text-charcoal
-                "
-              >
-                <Instagram className="size-3.5" />
-                <span className="hidden sm:inline">
-                  Instagram
-                </span>
-              </a>
+  {/* One row on every screen: icon buttons, no wrapping */}
+  <div className="mt-4 flex gap-2">
+    {[
+      { label: "Instagram", href: site.instagram, icon: Instagram },
+      { label: "Facebook", href: FACEBOOK_URL, icon: Facebook },
+      { label: "WhatsApp", href: whatsappHref(), icon: MessageCircle },
+    ].map(({ label, href, icon: Icon }) => (
+      <a
+        key={label}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={label}
+        title={label}
+        className="
+          grid size-10 shrink-0 place-items-center
+          rounded-full
+          border border-ivory/10
+          text-ivory/60
+          transition-all duration-300
+          hover:-translate-y-0.5
+          hover:border-bronze
+          hover:bg-bronze
+          hover:text-charcoal
+        "
+      >
+        <Icon className="size-4" aria-hidden="true" />
+      </a>
+    ))}
 
-              {/* WhatsApp */}
-              <a
-                href={whatsappHref()}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                className="
-                  group flex
-                  items-center justify-center
-                  gap-2
-                  rounded-full
-                  border border-ivory/10
-                  px-3 py-2.5
-                  text-xs text-ivory/60
-                  transition-all duration-300
-                  hover:border-bronze
-                  hover:bg-bronze
-                  hover:text-charcoal
-                "
-              >
-                <MessageCircle className="size-3.5" />
-                <span className="hidden sm:inline">
-                  WhatsApp
-                </span>
-              </a>
+    {/* Email */}
+    <Link
+      to="/contact"
+      aria-label="Email enquiry"
+      title="Email enquiry"
+      className="
+        grid size-10 shrink-0 place-items-center
+        rounded-full
+        border border-ivory/10
+        text-ivory/60
+        transition-all duration-300
+        hover:-translate-y-0.5
+        hover:border-bronze
+        hover:bg-bronze
+        hover:text-charcoal
+      "
+    >
+      <Mail className="size-4" aria-hidden="true" />
+    </Link>
+  </div>
 
-              {/* Email */}
-              <Link
-                to="/contact"
-                aria-label="Email enquiry"
-                className="
-                  group flex
-                  items-center justify-center
-                  gap-2
-                  rounded-full
-                  border border-ivory/10
-                  px-3 py-2.5
-                  text-xs text-ivory/60
-                  transition-all duration-300
-                  hover:border-bronze
-                  hover:bg-bronze
-                  hover:text-charcoal
-                "
-              >
-                <Mail className="size-3.5" />
-                <span className="hidden sm:inline">
-                  Email
-                </span>
-              </Link>
-            </div>
-
-            {/* Address */}
-            <div className="mt-4 flex gap-2 text-xs leading-5 text-ivory/35">
-              <MapPin className="mt-0.5 size-3.5 shrink-0 text-bronze" />
-              <span>{site.contact.address}</span>
-            </div>
-          </div>
+  {/* Address */}
+  <div className="mt-4 flex gap-2 text-xs leading-5 text-ivory/35">
+    <MapPin className="mt-0.5 size-3.5 shrink-0 text-bronze" />
+    <span>{site.contact.address}</span>
+  </div>
+</div>
         </div>
       </div>
 

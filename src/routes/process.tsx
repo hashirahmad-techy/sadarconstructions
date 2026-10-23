@@ -4,24 +4,15 @@ import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
 import { PlanToReality } from "@/components/sections/ImageStatement";
 import { CTASection } from "@/components/sections/CTASection";
 import { projectImages } from "@/data/projects";
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/process")({
-  head: () => ({
-    meta: [
-      { title: "Our Process | Sadar Constructions" },
-      {
-        name: "description",
-        content:
-          "Discover, plan, design, build, refine, deliver — the six-stage construction process Sadar Constructions follows on every project.",
-      },
-      { property: "og:title", content: "Our Process | Sadar Constructions" },
-      {
-        property: "og:description",
-        content:
-          "A structured six-stage process that keeps design intent, budget and quality aligned from brief to handover.",
-      },
-    ],
-  }),
+   head: () =>
+    seo({
+      title: "Construction Services in Bhopal | Sadar Constructions",
+      description: "House construction, commercial buildings, design & build and renovation in Bhopal.",
+      path: "/services",
+    }),
   component: ProcessPage,
 });
 

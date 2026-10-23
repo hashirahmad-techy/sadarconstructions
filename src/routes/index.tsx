@@ -8,27 +8,19 @@ import { ProcessTimeline } from "@/components/sections/ProcessTimeline";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { InstagramGrid } from "@/components/sections/InstagramGrid";
 import { CTASection } from "@/components/sections/CTASection";
+import { VideoSection } from "@/components/sections/VideoSection";
+
+import { seo } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Sadar Constructions | Premium Residential & Commercial Construction" },
-      {
-        name: "description",
-        content:
-          "Premium construction and architectural execution for residential and commercial projects — design-led planning, precise detailing and lasting quality.",
-      },
-      {
-        property: "og:title",
-        content: "Sadar Constructions | Premium Residential & Commercial Construction",
-      },
-      {
-        property: "og:description",
-        content:
-          "Design-led construction for homes, commercial spaces and renovations. Built with precision, finished with care.",
-      },
-    ],
-  }),
+  head: () =>
+    seo({
+      // TODO: replace YOUR CITY with your real city, in both title and description
+      title: "Residential & Commercial Construction in Bhopal | Sadar Constructions",
+      description:
+        "Sadar Constructions builds homes, commercial spaces and renovations in Bhopal. Design-led planning, precise detailing and lasting quality. Get in touch for a free consultation.",
+      path: "/",
+    }),
   component: Index,
 });
 
@@ -39,6 +31,7 @@ function Index() {
       <StatsBand />
       <ServicesSection limit={6} />
       <WhySadar />
+      <VideoSection />
       <ProjectsSection />
       {/* <ProcessTimeline /> */}
       <Testimonials />

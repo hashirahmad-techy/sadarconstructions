@@ -19,8 +19,8 @@ export const site = {
 
   /** PLACEHOLDERS — replace once verified. */
   contact: {
-    phone: "+91-8878666503",
-    email: "azhar_khilji786@yahoo.com",
+    phone: "+91-7898895488",
+    email: "sadargroup4@gmail.com",
     address: "Bhopal, Madhya Pradesh",
     hours: "Mon–Sat, 9am–6pm",
   },
@@ -40,7 +40,7 @@ export const nav = [
  * Until it is set, the button links to the Instagram profile instead of a fake number.
  */
 export const whatsapp = {
-  number: "+918878666503", // e.g. "919876543210" (country code + number, no +)
+  number: "+917898895488", // e.g. "919876543210" (country code + number, no +)
   message: "Hello Sadar Constructions, I would like to discuss a construction project.",
 };
 
@@ -51,9 +51,9 @@ export function whatsappHref() {
 
 /** PLACEHOLDER STATS — do not invent real numbers. */
 export const stats = [
-  { value: "18", suffix: "+", label: "Projects" },
+  { value: "28", suffix: "+", label: "Projects" },
   { value: "5", suffix: "+", label: "Years of experience" },
-  { value: "12", suffix: "+", label: "Clients" },
+  { value: "72", suffix: "+", label: "Clients" },
   { value: "3", suffix: "+", label: "Cities / location" },
 ];
 

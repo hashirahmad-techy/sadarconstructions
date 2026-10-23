@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { businessSchema } from "@/lib/seo";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
@@ -23,6 +24,8 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-[70vh] items-center justify-center bg-background px-5">
       <div className="max-w-md text-center">
+        {/* Keeps the 404 page out of Google */}
+        <meta name="robots" content="noindex" />
         <p className="label-micro text-muted-foreground">Error 404</p>
         <h1 className="display-lg mt-5 text-foreground">Page not found</h1>
         <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
@@ -79,16 +82,15 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
+    // Only site-wide tags live here. Each page sets its own title, description,
+    // Open Graph / Twitter tags and canonical link through seo() in @/lib/seo,
+    // so nothing is duplicated.
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: site.metaTitle },
-      { name: "description", content: site.metaDescription },
       { name: "author", content: site.name },
-      { property: "og:title", content: site.metaTitle },
-      { property: "og:description", content: site.metaDescription },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { property: "og:locale", content: "en_IN" },
       // Tints the mobile browser bar to match the active theme
       { name: "theme-color", content: "#faf8f3", media: "(prefers-color-scheme: light)" },
       { name: "theme-color", content: "#1a1917", media: "(prefers-color-scheme: dark)" },
@@ -103,8 +105,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
-    // Runs before first paint so dark mode never flashes white
-    scripts: [{ children: themeInitScript }],
+    scripts: [
+      // Runs before first paint so dark mode never flashes white
+      { children: themeInitScript },
+      // Business details for Google (only fields you filled in are included)
+      { type: "application/ld+json", children: JSON.stringify(businessSchema()) },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
